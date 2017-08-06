@@ -1,14 +1,14 @@
-        MVI D 10                 
-        MVI E 00
-        MVI B E1
-        MVI C E2  
+        MVI D, 10H                 
+        MVI E, 00H
+        MVI B, E1H
+        MVI C, E2H 
 
-loop:   MOV H B
-        MOV L E
-        MOV A M
+loop:   MOV H, B
+        MOV L, E
+        MOV A, M
         
-        MOV H C
-        MOV M A 
+        MOV H, C
+        MOV M, A 
 
         INR E  
         DCR D
