@@ -1,0 +1,16 @@
+; Assuming E100H has 45 
+; To store 04 in E101H and 05 in E102H
+
+
+LDA E100H
+
+RRC
+RRC
+RRC
+RRC
+ANI 0FH        
+STA E101H
+LDA E100H
+ANI 0FH
+STA E102H 
+HLT
