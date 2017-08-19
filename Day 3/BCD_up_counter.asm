@@ -1,24 +1,20 @@
 ; BCD up-counter. Display in data field from 00 to 99
 
-        LXI SP, 27FFH
-        MVI C, OOH 
-BACK:   CALL MODIDT
-        CALL Delay 
-        MOV A, C
-        INR A
-        DAA 
-        MOV C,A
-        CPI 00H
+       START:  MVI A, 00H
+        STA E100H
+LOOP:   LDA E100H
+        CALL MODIDT
+        CALL DELAY
+        LDA E100H
+        INR A 
+        DAA
+        STA E100H 
+        JNZ LOOP
+        JMP START 
+DELAY:  LXI H, FFFFH
+BACK:   DCX H 
+        MOV A, L 
+        ORA H 
         JNZ BACK 
-        HLT
-
-
-Delay:  MVI B, 03H      
-BACK1:  LXI D, 99H
-BACK:   DCX D                                       
-        MOV A, E
-        ORA D                                                
-        JNZ BACK                                           
-        DCR B                                                
-        JNZ BACK1                                       
-        RET                                        
+        RET        
+                
