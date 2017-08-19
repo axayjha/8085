@@ -1,6 +1,6 @@
 ; BCD up-counter. Display in data field from 00 to 99
 
-       START:  MVI A, 00H
+START:  MVI A, 00H
         STA E100H
 LOOP:   LDA E100H
         CALL MODIDT
