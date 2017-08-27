@@ -4,6 +4,7 @@
 ; Assume table is like: E110 = 00, E111= 01, E112 = 04, E113 = 09, E114 = 16 .....
       
       MVI A, 0EH
+      SIM
 LOOP: CALL RDKBD
       LXI H, E110H
       ORA L
