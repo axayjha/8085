@@ -1,7 +1,7 @@
 #Check if two arrays of memory locations have same content. Return 1 for True and 0 otherwise.
   
                 LXI H, E100H          # loading starting address of first array
-                MVI C, 0FH            # counter = 15
+                MVI C, 10H            # counter = 16
                 MVI D, 01H            # boolean value to indicate if arrays are same (initial, true (0) )
 CHECKAGAIN:     MOV A, M              # moving data from first array to A
                 INR H                 # incrementing E1 to E2
