@@ -1,0 +1,49 @@
+; Implementation of a 180 deg pendulum 
+; using a stepper motor
+
+; #include <stdio... just kidding
+
+
+		MVI  A, 80H
+		OUT  CSR
+START:	MVI  C, 19H		; SETTING COUNT TO 25
+LOOP:	MVI  A, EEH     ; EXCITING COIL A
+		OUT  PORT_C
+		CALL DELAY
+		MVI  A, DDH 	; EXCITING COIL C
+		OUT  PORT_C
+		CALL DELAY
+		MVI  A, BBH		; EXCITING COIL B
+		OUT  PORT_C
+		CALL DELAY
+		MVI  A, 77H		; EXCITING COIL D
+		OUT  PORT_C
+		CALL DELAY
+		DCR  C
+		JNZ  LOOP
+
+LOOP2:	MVI  C, 19H
+		MVI  A, EEH		
+		OUT  PORT_C		; EXCITING COIL A
+		CALL DELAY
+		MVI  A, 77H		
+		OUT  PORT_C     ; EXCITING COIL D
+		CALL DELAY
+		MVI  A, BBH
+		OUT  PORT_C
+		CALL DELAY
+		MVI  A, DDH
+		OUT  PORT_C
+		CALL DELAY
+		DCR  C
+		JNZ  LOOP2
+		JMP  START
+
+DELAY:	LXI  H, IFFFH
+BACK:	DCX  H
+		MOV  A, L
+		ORA  H
+		JNZ  BACK
+		RET			
+
+
