@@ -1,3 +1,4 @@
+
         LDA E100H       ; Load first number
         CPI 00          ; if number is 0, jump to end and result=0
         JZ END
@@ -5,16 +6,20 @@
         LDA E101H       ; Load second number
         CPI 00          ; if number is 0, jump to end and result=0
         JZ END
-        MOV C, A        ; Move second number to C        
+        MOV C, A        ; Move second number to C     
+        MVI D, 00H      ; carry
         
         XRA A           ; A XOR A => A=0
 
 LOOP:   ADD B           ; A = A + B
-        DCR C           ; C = C-1
+        JNC SKIP
+        INR D
+SKIP:   DCR C           ; C = C-1
         JZ  END         ; if C==0, jump to end and store result
         JMP LOOP        ; else, loop back and add
-END:    STA E102H       ; store result
-        JNC STOP        ; if no carry, stop the program (Cy from ADD B is still retained )
-        MVI A, 01       ; else store carry
-        STA E103H
-STOP:   RST 1
+END:    STA FFF8H       ; store result
+        MOV A, D        ; store carry
+        STA FFF7H
+DISPLAY:CALL UPDAD
+        JMP DISPLAY
+
