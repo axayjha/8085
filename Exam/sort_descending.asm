@@ -1,6 +1,6 @@
 LOOP2:			MVI D, 0 		; Boolean flag, D=0    (0:Sorted 1:Not sorted)
 			LXI H, E100		; Load starting address	
-			MVI C, 0F  		; Loop counter for inner loop, C =16
+			MVI C, 0F  		; Loop counter for inner loop, C =15
 LOOP:			MOV A, M 		; Load first number to compare
 			INX H         		; Increment address and compare the two numbers
 			CMP M 			; sets Cy = 1, if A<M
