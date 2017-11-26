@@ -7,7 +7,7 @@ RLC
 RLC
 RLC
 RLC
-; //ANI FOH        
+ANI FOH        
 MOV C, A
 LDA E101H
 ADD C
