@@ -4,7 +4,8 @@
 		MVI C, 10H		; loop counter = 16
 		MVI D, 00H		; result = 0
 LOOP:		MOV A, M        	; moving data from memory to accumulator
-		JM SKIP         	; jump on minus: skip incrementing result if number is negative
+		RLC
+		JC SKIP         	; jump on minus: skip incrementing result if number is negative
 		
 		INR D 			; increment result value
 SKIP:		INX H   		; increment memory address
