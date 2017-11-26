@@ -6,9 +6,9 @@
 		RLC
 		RLC
 		RLC
-		RLC				
+		RLC			
+		ANI F0H	
 		MOV B, A 		; Shift left 4 postions and store in B
-						; instead of 4 RLCs, you can do ANI F0h
 
 		MVI A, 0E
 		SIM
