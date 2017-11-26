@@ -1,9 +1,9 @@
 # Microprocessors and microcontrollers lab
-##8085 assembly codes
+## 8085 assembly codes
 
 
 
-### Subroutine addresses for ALS and Dyna 8085 kits
+### Subroutine addresses for ALS and Dyna 8085 kits:
 
 #### For Dyna Kit
 * RDKBD : 0x02E7
