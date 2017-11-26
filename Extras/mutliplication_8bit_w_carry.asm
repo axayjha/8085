@@ -1,0 +1,17 @@
+			
+			LDA  E100H
+			MOV  C, A
+			LDA  E101H
+			MOV  B, A
+			XRA  A 			; CLEAR A
+			MVI  D, 00H     ; CARRY 
+LOOP:		ADD  B
+			JNC  SKIP       ; SKIP IF NO CARRY
+			INR  D          ; ELSE ADD CARRY
+SKIP:		DCR  C
+			JNZ  LOOP
+			STA  FFF8H
+			MOV  A, D
+			STA  FFF7H
+DISPLAY:	CALL UPDAD
+			JMP  DISPLAY		

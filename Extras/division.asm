@@ -1,0 +1,14 @@
+		LXI  H, E100H
+		MOV  B, M
+		MVI  C, 00H
+		INX  H
+		MOV  A, M
+NEXT:   CMP  B
+		JC	 LOOP
+		SUB  B
+		INR  C
+		JMP  NEXT
+LOOP:	STA  E102H
+		MOV  A, C
+		STA  E103H 
+		RST 1
