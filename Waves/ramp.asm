@@ -1,4 +1,4 @@
-;Create a sawtooth wave pattern
+;Create a ramp wave pattern
 
 		MVI A,80
 		OUT CSR
