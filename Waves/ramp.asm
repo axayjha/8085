@@ -1,7 +1,11 @@
+;Create a sawtooth wave pattern
+
 		MVI A,80
 		OUT CSR
-		MVI A,FFH
+		MVI A,00H
+
 LOOP: 	OUT PORT B
-		DCR A
+		INR A
 		JMP LOOP
+		
 		HLT
