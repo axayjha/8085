@@ -6,7 +6,7 @@
 
 
 ### Subroutine addresses for ALS and Dyna 8085 kits:
-#### (won't work with the simulator)
+#### (user i/p and display subroutines won't work with the simulator)
 
 
 #### For Dyna Kit
